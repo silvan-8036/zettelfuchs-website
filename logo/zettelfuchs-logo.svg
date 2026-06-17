@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512" role="img" aria-label="Zettelfuchs Logo">
+  <path d="M6 6 L26 16 H38 L58 6 L54 30 C52 46 44 56 32 58 C20 56 12 46 10 30 Z"
+        fill="#ffd31d" stroke="#14130f" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="24" cy="30" r="2.6" fill="#14130f"/>
+  <circle cx="40" cy="30" r="2.6" fill="#14130f"/>
+  <path d="M28 42 L32 46 L36 42" fill="none" stroke="#14130f" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
