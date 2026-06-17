@@ -1,0 +1,117 @@
+/* ============================================================
+   Zettelfuchs — Layout für Rechtsseiten (Impressum, Datenschutz)
+   Teilt Marke/Typo mit index.html, ohne deren Animations-CSS.
+   ============================================================ */
+:root {
+  --ink: #14130f;
+  --ink-soft: #3c3a33;
+  --paper: #f6f3ea;
+  --paper-2: #ece7d8;
+  --gelb: #ffd31d;
+  --gelb-soft: rgba(255, 211, 29, .38);
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-body: "Archivo", sans-serif;
+  --font-mono: "Space Mono", monospace;
+  --max-w: 820px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+::selection { background: var(--gelb); color: var(--ink); }
+
+a { color: var(--ink); text-decoration-color: var(--gelb); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { background: var(--gelb-soft); }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(246, 243, 234, .9); backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(20, 19, 15, .12);
+}
+.nav-inner {
+  max-width: 1240px; margin: 0 auto; padding: 16px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.2rem;
+  text-decoration: none; color: var(--ink); display: flex; align-items: center; gap: .4em;
+}
+.logo:hover { background: none; }
+.logo svg { width: 30px; height: 30px; transform: rotate(-4deg); transition: transform .35s cubic-bezier(.22,1,.36,1); }
+.logo:hover svg { transform: rotate(8deg) scale(1.1); }
+.nav-back {
+  font-family: var(--font-mono); font-size: .82rem; text-decoration: none;
+  display: inline-flex; align-items: center; gap: .5em;
+  border: 1.5px solid var(--ink); border-radius: 999px; padding: .5em 1.1em;
+  transition: background .25s, color .25s;
+}
+.nav-back:hover { background: var(--ink); color: var(--paper); }
+
+/* ---------- Inhalt ---------- */
+.legal { max-width: var(--max-w); margin: 0 auto; padding: 72px 28px 40px; }
+.mono-label {
+  font-family: var(--font-mono); font-size: .78rem; letter-spacing: .22em;
+  text-transform: uppercase; display: inline-flex; align-items: center; gap: .6em; color: var(--ink-soft);
+}
+.mono-label::before { content: ""; width: 34px; height: 2px; background: var(--ink); }
+.legal h1 {
+  font-family: var(--font-display); font-weight: 800; letter-spacing: -.02em; line-height: 1.05;
+  font-size: clamp(2.4rem, 6vw, 3.8rem); margin: 18px 0 8px;
+}
+.legal .stand { font-family: var(--font-mono); font-size: .8rem; color: var(--ink-soft); margin-bottom: 40px; }
+
+/* Hinweisbox (Platzhalter / Disclaimer) */
+.hinweis {
+  border: 1.5px dashed var(--ink); border-radius: 12px; background: var(--gelb-soft);
+  padding: 20px 22px; margin: 0 0 40px; font-size: .95rem;
+}
+.hinweis strong { font-family: var(--font-display); }
+
+.legal section { margin-bottom: 38px; }
+.legal h2 {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.5rem;
+  letter-spacing: -.01em; margin-bottom: 12px;
+  padding-top: 8px; border-top: 1.5px solid rgba(20, 19, 15, .15);
+}
+.legal h2:first-of-type { border-top: none; }
+.legal h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 20px 0 6px; }
+.legal p { margin-bottom: 12px; }
+.legal ul { margin: 0 0 12px 1.2em; }
+.legal li { margin-bottom: 7px; }
+
+/* Platzhalter, die der Betreiber ausfüllen muss */
+.fill {
+  font-family: var(--font-mono); font-size: .92em; font-weight: 700;
+  background: var(--gelb); color: var(--ink);
+  padding: .08em .4em; border-radius: 4px; white-space: nowrap;
+}
+
+/* Daten-/Adressblock */
+.block {
+  font-style: normal; background: #fff; border: 1.5px solid var(--ink); border-radius: 12px;
+  padding: 22px 24px; margin: 8px 0 16px; line-height: 1.9;
+  box-shadow: 6px 7px 0 rgba(20, 19, 15, .9);
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  border-top: 2px solid var(--ink); margin-top: 30px;
+  background: var(--paper-2);
+}
+.foot-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 28px;
+  display: flex; gap: 14px 26px; flex-wrap: wrap; justify-content: space-between;
+  font-family: var(--font-mono); font-size: .78rem;
+}
+.foot-inner a { text-decoration: none; }
