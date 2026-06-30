@@ -3,13 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zettelfuchs — Lieferscheine rein. Excel raus.</title>
-<meta name="description" content="Zettelfuchs liest Ihre Lieferscheine automatisch aus und schreibt sie strukturiert nach Excel. Unsichere Felder werden gelb markiert — nie falsch geraten. 100 % lokal.">
-<meta property="og:title" content="Zettelfuchs — Lieferscheine rein. Excel raus.">
-<meta property="og:description" content="Schluss mit Abtippen: Zettelfuchs liest Lieferscheine aus und markiert alles Unsichere gelb. 100 % lokal.">
+<title>Lieferscheine automatisch auslesen &amp; nach Excel | Zettelfuchs</title>
+<meta name="description" content="Lieferscheine automatisch auslesen statt abtippen – nach Excel, mit Wareneingangskontrolle, GoBD-Ablage &amp; DATEV-Export. 100 % lokal &amp; DSGVO-konform.">
+<meta name="keywords" content="Lieferschein auslesen, Lieferscheine digitalisieren, Lieferscheinerfassung, Lieferschein Software, Lieferschein OCR, Wareneingang erfassen, Wareneingangskontrolle, Belegerfassung, Lieferschein nach Excel, Lieferscheinverwaltung, Lieferschein Texterkennung, GoBD Archivierung, DATEV Export, Lieferschein scannen, Österreich, KMU, Mittelstand">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Zettelfuchs">
+<meta name="geo.region" content="AT">
+<meta name="geo.placename" content="Österreich">
+<link rel="canonical" href="https://zettelfuchs.at/">
+<meta property="og:title" content="Lieferscheine automatisch auslesen &amp; nach Excel | Zettelfuchs">
+<meta property="og:description" content="Lieferscheine (PDF/Foto) automatisch erfassen, prüfen und nach Excel exportieren – mit Wareneingangskontrolle, GoBD-Ablage und DATEV-Export. 100 % lokal.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://zettelfuchs.at/">
+<meta property="og:site_name" content="Zettelfuchs">
+<meta property="og:locale" content="de_AT">
+<meta property="og:image" content="https://zettelfuchs.at/logo/zettelfuchs-avatar-dark.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lieferscheine automatisch auslesen &amp; nach Excel | Zettelfuchs">
+<meta name="twitter:description" content="Schluss mit Abtippen: Lieferscheine automatisch auslesen, prüfen, nach Excel – inkl. Wareneingangskontrolle, GoBD &amp; DATEV. 100 % lokal.">
+<meta name="twitter:image" content="https://zettelfuchs.at/logo/zettelfuchs-avatar-dark.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 6 L26 16 H38 L58 6 L54 30 C52 46 44 56 32 58 C20 56 12 46 10 30 Z' fill='%23ffd31d' stroke='%2314130f' stroke-width='3' stroke-linejoin='round'/%3E%3Ccircle cx='24' cy='30' r='2.6' fill='%2314130f'/%3E%3Ccircle cx='40' cy='30' r='2.6' fill='%2314130f'/%3E%3Cpath d='M28 42 L32 46 L36 42' fill='none' stroke='%2314130f' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link href="fonts.css" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Zettelfuchs",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Windows",
+  "url": "https://zettelfuchs.at/",
+  "inLanguage": "de",
+  "description": "Zettelfuchs liest Lieferscheine (PDF oder Foto) automatisch aus und schreibt sie strukturiert nach Excel – inklusive Wareneingangskontrolle, GoBD-revisionssicherer Belegablage, DATEV-/lexoffice-Export und Transport-CO2/VSME-Report. 100 % lokal, DSGVO-konform.",
+  "areaServed": ["AT", "DE", "CH"],
+  "offers": {
+    "@type": "Offer",
+    "price": "159",
+    "priceCurrency": "EUR",
+    "description": "pro Monat zzgl. USt."
+  },
+  "featureList": [
+    "Lieferscheine automatisch auslesen (PDF und Foto)",
+    "Stapelverarbeitung und Duplikat-Erkennung",
+    "Unsichere Felder werden markiert statt geraten",
+    "Wareneingangskontrolle: Lieferung gegen Bestellung",
+    "Artikel-Katalog und Anomalie-Erkennung",
+    "GoBD-revisionssichere Belegablage",
+    "DATEV- und lexoffice-Export",
+    "Transport-CO2 / VSME-Report (GLEC, ISO 14083)",
+    "100 % lokale Verarbeitung ohne Cloud"
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Zettelfuchs",
+    "url": "https://zettelfuchs.at/",
+    "logo": "https://zettelfuchs.at/logo/zettelfuchs-icon.png",
+    "email": "kontakt.zettelfuchs@gmail.com",
+    "areaServed": "AT"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Funktioniert das mit unseren Lieferschein-Layouts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Zettelfuchs erkennt Kopffelder über flexible Beschriftungen (Lieferschein-Nr., LS-Nr., Belegnummer …) und Positionstabellen über ihre Spaltenüberschriften – es ist nicht auf ein festes Layout trainiert. Im kostenlosen Test prüfen wir das direkt mit Ihren echten Belegen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was passiert, wenn das Tool etwas nicht lesen kann?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Unsichere oder fehlende Felder werden gelb markiert statt geraten. Sie sehen sie sofort im Korrektur-Formular und bestätigen mit einem Blick. Es wird nie ein plausibel klingender Wert erfunden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Erkennt Zettelfuchs Abweichungen zur Bestellung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Laden Sie die Bestellung als Tabelle (CSV/Excel) dazu, gleicht Zettelfuchs sie Position für Position mit der Lieferung ab: zu wenig oder zu viel geliefert, abweichender Preis, fehlende oder nicht bestellte Artikel – alles farbig markiert. Zusätzlich fällt auf, wenn ein Preis deutlich vom zuletzt erfassten abweicht oder ein Lieferant neu ist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bekommt unser Steuerberater die Daten – GoBD und DATEV?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Auf Wunsch legt Zettelfuchs jedes Original revisionssicher ab (unveränderbar, mit Prüfsumme und Protokoll) – die Grundlage der achtjährigen Aufbewahrungspflicht, komplett lokal. Für die Buchhaltung erzeugt es einen DATEV-Buchungsstapel (EXTF) oder einen CSV für lexoffice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie wird die CO2-Bilanz berechnet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aus Gewicht und Strecke je Sendung ergeben sich die Tonnenkilometer. Diese multiplizieren wir mit einem Emissionsfaktor nach GLEC Framework / ISO 14083 (Well-to-Wheel), der sich nach Fahrzeugklasse und Treibstoff richtet. Eine nachvollziehbare Schätzung für CSRD-/VSME-Berichte; fehlen Gewicht oder Strecke, bleibt die Spalte leer statt geraten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Brauchen wir neue Software oder eine Cloud?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Zettelfuchs läuft als lokale Anwendung auf einem Windows-Rechner und schreibt in eine ganz normale Excel-Datei. Keine Cloud, kein Upload – Ihre Belege bleiben auf Ihrem Rechner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie schnell sind wir startklar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Installation und erster Stapel am selben Tag. Sie laden Belege hoch, prüfen die gelben Felder und haben Ihre erste fertige Excel-Liste – ohne Schulung."
+      }
+    }
+  ]
+}
+</script>
 <style>
 /* ============================================================
    LIEFERSCHEIN-TOOL — Landing Page
