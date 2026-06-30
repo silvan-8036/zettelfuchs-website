@@ -547,6 +547,88 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; letter-spacing
 .co2-sheet thead .hl { background: var(--excel); color: #fff; }
 .co2-quelle { margin-top: 14px; font-family: var(--font-mono); font-size: .7rem; color: var(--ink-soft); line-height: 1.6; }
 
+/* ---------- NEUE FEATURES: Kontrolle (Wareneingang + Anomalie) ---------- */
+.kontrolle { padding: 150px 0; background: var(--ink); color: var(--paper); }
+.kontrolle .mono-label { color: var(--gelb); }
+.kontrolle .mono-label::before { background: var(--gelb); }
+.kontrolle-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 70px; align-items: center; }
+@media (max-width: 900px) { .kontrolle-grid { grid-template-columns: 1fr; gap: 48px; } }
+.kontrolle h2 { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; margin-top: 22px; }
+.kontrolle h2 .gelb-wort { color: var(--gelb); }
+.kontrolle .k-text > p { margin-top: 24px; font-size: 1.1rem; color: rgba(246,243,234,.74); max-width: 32em; }
+.k-list { margin-top: 26px; list-style: none; display: flex; flex-direction: column; gap: 13px; font-weight: 500; }
+.k-list li { display: flex; gap: .7em; align-items: baseline; }
+.k-list li b { font-weight: 700; }
+
+/* Kontroll-Tabelle (Bestellung vs. Lieferung) */
+.ctrl-sheet {
+  background: #fff; color: var(--ink); border: 2px solid var(--ink);
+  border-radius: 16px; overflow: hidden; box-shadow: 14px 16px 0 var(--gelb);
+}
+.ctrl-head {
+  background: var(--ink); color: var(--paper); font-family: var(--font-mono);
+  font-size: .72rem; font-weight: 700; letter-spacing: .08em; padding: 11px 16px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.ctrl-sheet table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: .72rem; }
+.ctrl-sheet th, .ctrl-sheet td {
+  padding: 10px 12px; text-align: left; white-space: nowrap;
+  border-top: 1px solid rgba(20,19,15,.1); border-right: 1px solid rgba(20,19,15,.06);
+}
+.ctrl-sheet th { background: var(--paper-2); font-weight: 700; }
+.ctrl-sheet td.num { text-align: right; }
+.ctrl-sheet .st { font-weight: 700; }
+.row-ok td { background: rgba(29,111,66,.10); }
+.row-ok .st { color: var(--excel); }
+.row-warn td { background: var(--gelb-soft); }
+.row-warn .st { color: #8a6a00; }
+.row-bad td { background: rgba(214,69,40,.12); }
+.row-bad .st { color: var(--rot); }
+
+/* Anomalie-Callout (das "Tool denkt mit") */
+.anomalie-box {
+  margin-top: 16px; background: #fff; color: var(--ink);
+  border: 1.5px dashed var(--ink); border-radius: 12px; padding: 14px 16px;
+  font-family: var(--font-mono); font-size: .73rem; line-height: 1.65;
+  box-shadow: 6px 7px 0 rgba(20,19,15,.85);
+}
+.anomalie-box .a-titel { font-weight: 700; letter-spacing: .1em; display: block; margin-bottom: 8px; }
+.anomalie-box .a-row { display: flex; gap: .55em; align-items: baseline; }
+.anomalie-box .a-row + .a-row { margin-top: 7px; }
+.anomalie-box .a-row::before { content: "🔎"; font-size: .9em; }
+.anomalie-box b { color: var(--rot); }
+
+/* ---------- NEUE FEATURES: "Mehr als Abtippen" — Feature-Grid ---------- */
+.mehr { padding: 150px 0; }
+.mehr-intro { max-width: 30em; }
+.mehr h2 { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 800; margin-top: 22px; }
+.mehr h2 + p { margin-top: 22px; font-size: 1.1rem; color: var(--ink-soft); max-width: 34em; }
+.mehr-grid { margin-top: 54px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+@media (max-width: 820px) { .mehr-grid { grid-template-columns: 1fr; } }
+.mehr-card {
+  border: 2px solid var(--ink); border-radius: 16px; background: #fff; padding: 36px 34px;
+  transition: transform .35s var(--ease-out), box-shadow .35s var(--ease-out);
+}
+.mehr-card:hover { transform: translate(-4px, -6px) rotate(-.5deg); box-shadow: 12px 14px 0 var(--gelb); }
+.mehr-card .ic {
+  font-size: 1.5rem; width: 56px; height: 56px; display: grid; place-items: center;
+  border: 1.5px solid var(--ink); border-radius: 14px; background: var(--gelb-soft); transform: rotate(-4deg);
+}
+.mehr-card h3 { font-size: 1.5rem; font-weight: 700; margin-top: 20px; }
+.mehr-card p { margin-top: 12px; color: var(--ink-soft); }
+.mehr-card .mtag {
+  margin-top: 18px; display: inline-block; font-family: var(--font-mono); font-size: .7rem;
+  letter-spacing: .05em; background: var(--paper-2); border: 1.5px solid var(--ink);
+  padding: .32em .7em; border-radius: 5px;
+}
+/* ESG-Karte trägt das Grün als eigene Identität */
+.mehr-card.esg { background: #102a20; color: var(--paper); border-color: var(--excel); }
+.mehr-card.esg .ic { background: rgba(29,111,66,.35); border-color: var(--excel); }
+.mehr-card.esg h3 { color: #fff; }
+.mehr-card.esg p { color: rgba(246,243,234,.76); }
+.mehr-card.esg .mtag { background: rgba(29,111,66,.3); border-color: var(--excel); color: #c6ecd5; }
+.mehr-card.esg:hover { box-shadow: 12px 14px 0 var(--excel); }
+
 /* ---------- Footer-CTA ---------- */
 .schluss {
   background: var(--gelb); padding: 130px 0 0; overflow: hidden;
@@ -622,6 +704,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; letter-spacing
       <ul class="nav-links">
         <li><a href="#funktion">So funktioniert's</a></li>
         <li><a href="#sicherheit">Genauigkeit</a></li>
+        <li><a href="#kontrolle">Kontrolle</a></li>
         <li><a href="#co2">CO₂&nbsp;&amp;&nbsp;ESG</a></li>
         <li><a href="#preis">Preis</a></li>
         <li><a class="btn" href="#kontakt" data-cursor>Kostenlos testen <span class="arr">→</span></a></li>
@@ -692,9 +775,9 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; letter-spacing
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span>400 Belege im Monat</span><span>unter 5 Stunden</span><span>100&nbsp;% lokal</span>
-    <span>nie falsch geraten</span><span>Duplikate erkannt</span><span>europäische Formate</span><span>Transport-CO₂ inklusive</span>
+    <span>nie falsch geraten</span><span>Bestellung abgeglichen</span><span>Preis-Anomalien erkannt</span><span>GoBD-revisionssicher</span><span>DATEV-Export</span><span>Transport-CO₂ inklusive</span>
     <span>400 Belege im Monat</span><span>unter 5 Stunden</span><span>100&nbsp;% lokal</span>
-    <span>nie falsch geraten</span><span>Duplikate erkannt</span><span>europäische Formate</span><span>Transport-CO₂ inklusive</span>
+    <span>nie falsch geraten</span><span>Bestellung abgeglichen</span><span>Preis-Anomalien erkannt</span><span>GoBD-revisionssicher</span><span>DATEV-Export</span><span>Transport-CO₂ inklusive</span>
   </div>
 </div>
 
@@ -809,6 +892,98 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; letter-spacing
   </div>
 </section>
 
+<!-- ===== Wareneingangskontrolle + Anomalien ===== -->
+<section class="kontrolle" id="kontrolle">
+  <div class="wrap kontrolle-grid">
+    <div class="k-text">
+      <span class="mono-label" data-reveal>Wareneingangskontrolle</span>
+      <h2 data-reveal style="--d:.1s">Nicht nur erfassen.<br><span class="gelb-wort">Kontrollieren.</span></h2>
+      <p data-reveal style="--d:.2s">
+        Zettelfuchs vergleicht die Lieferung mit Ihrer Bestellung — Position für Position.
+        Zu wenig geliefert, falscher Preis, nicht bestellter Artikel, fehlende Position:
+        alles sofort sichtbar und farbig markiert. Sie sehen Abweichungen,
+        <em>bevor</em> sie zum Problem werden.
+      </p>
+      <ul class="k-list" data-reveal style="--d:.3s">
+        <li><b>✅ Stimmt</b>&nbsp;— Menge und Preis genau wie bestellt.</li>
+        <li><b>⚠️ Abweichung</b>&nbsp;— andere Menge oder anderer Preis als bestellt.</li>
+        <li><b>❗ Fehlt / nicht bestellt</b>&nbsp;— Position fehlt oder war gar nicht bestellt.</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="ctrl-sheet wipe" data-reveal style="--d:.15s">
+        <div class="ctrl-head"><span>Bestellung ↔ Lieferung</span><span>LS-2026-001</span></div>
+        <table>
+          <thead>
+            <tr><th>Artikel</th><th class="num">Best.</th><th class="num">Gel.</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr class="row-ok"><td>Schreibtischstuhl</td><td class="num">10</td><td class="num">10</td><td class="st">✅ OK</td></tr>
+            <tr class="row-warn"><td>Druckerpapier A4</td><td class="num">20</td><td class="num">18</td><td class="st">⚠ Menge</td></tr>
+            <tr class="row-bad"><td>USB-C Kabel 2 m</td><td class="num">—</td><td class="num">2</td><td class="st">❗ Nicht bestellt</td></tr>
+            <tr class="row-bad"><td>Schreibtischlampe</td><td class="num">4</td><td class="num">—</td><td class="st">❗ Fehlt</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="anomalie-box" data-reveal style="--d:.3s">
+        <span class="a-titel">AUFGEFALLEN — ABGLEICH MIT BISHER ERFASSTEM</span>
+        <div class="a-row">Tonerkartusche 207A: Preis 119&nbsp;€ liegt <b>22&nbsp;% über</b> dem zuletzt erfassten (98&nbsp;€).</div>
+        <div class="a-row">Lieferant „Bürohaus Nord" — <b>neu</b>, noch nie erfasst. Stammdaten prüfen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Mehr als Abtippen — Feature-Grid ===== -->
+<section class="mehr" id="mehr">
+  <div class="wrap">
+    <div class="mehr-intro">
+      <span class="mono-label" data-reveal>Mehr als Abtippen</span>
+      <h2 data-reveal style="--d:.1s">Es <span class="marker">denkt mit.</span></h2>
+      <p data-reveal style="--d:.2s">
+        Aus jedem erfassten Beleg lernt Zettelfuchs dazu — und schließt die Kette von der
+        Erfassung bis zur Buchhaltung und zur rechtssicheren Ablage. Alles lokal.
+      </p>
+    </div>
+
+    <div class="mehr-grid">
+      <div class="mehr-card" data-reveal>
+        <div class="ic">🗂️</div>
+        <h3>Artikel-Gedächtnis</h3>
+        <p>Jeder erfasste Artikel wird gemerkt: Nummer, Beschreibung, letzter Preis, letzter
+           Lieferant. Beim nächsten Bestellen oder Versenden in Sekunden wiedergefunden —
+           und im Korrektur-Formular automatisch vorgeschlagen.</p>
+        <span class="mtag">durchsuchbar · CSV-Export</span>
+      </div>
+      <div class="mehr-card" data-reveal style="--d:.1s">
+        <div class="ic">📦</div>
+        <h3>GoBD-Belegablage</h3>
+        <p>Das Original wird unveränderbar lokal abgelegt — mit Prüfsumme, Änderungsschutz und
+           Protokoll. Erfüllt die achtjährige Aufbewahrungspflicht für buchungsrelevante
+           Belege, ganz ohne Cloud.</p>
+        <span class="mtag">revisionssicher · 100 % lokal</span>
+      </div>
+      <div class="mehr-card" data-reveal style="--d:.05s">
+        <div class="ic">🧾</div>
+        <h3>DATEV &amp; lexoffice</h3>
+        <p>Auf Knopfdruck ein Buchungsstapel im DATEV-Format (EXTF) oder ein schlanker CSV für
+           lexoffice. Ihr Steuerberater bekommt die Daten genau so, wie er sie braucht —
+           kein Abtippen mehr in der Buchhaltung.</p>
+        <span class="mtag">EXTF-Buchungsstapel + CSV</span>
+      </div>
+      <div class="mehr-card esg" data-reveal style="--d:.15s">
+        <div class="ic">🌿</div>
+        <h3>VSME-CO₂-Report</h3>
+        <p>Die Transport-CO₂-Bilanz als fertiger Ein-Seiten-Report — mit GHG-Scope-Einordnung
+           für die freiwillige VSME-Berichterstattung. Genau das, was große Kunden in der
+           Lieferkette zunehmend von ihren Zulieferern anfragen.</p>
+        <span class="mtag">VSME B3 · GLEC / ISO 14083</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CO2 / Logistik-Intelligenz ===== -->
 <section class="co2" id="co2">
   <div class="wrap co2-grid">
@@ -824,7 +999,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; letter-spacing
         <li>Tonnenkilometer je Sendung (Gewicht × Strecke)</li>
         <li>Faktor <strong>je Fahrzeugklasse &amp; Treibstoff</strong> — Diesel, HVO, CNG, Elektro …</li>
         <li>Well-to-Wheel nach <strong>GLEC&nbsp;Framework / ISO&nbsp;14083</strong></li>
-        <li>Direkt verwertbar für CSRD-/ESG-Berichte</li>
+        <li>Als <strong>VSME-Report</strong> mit Scope-Einordnung — für Anfragen großer Kunden</li>
       </ul>
       <p class="co2-hinweis" data-reveal style="--d:.3s">
         Nachvollziehbare Schätzung auf Basis anerkannter Emissionsfaktoren (GLEC&nbsp;/&nbsp;ISO&nbsp;14083,
@@ -908,7 +1083,10 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; letter-spacing
         <li>Unbegrenzte Belege &amp; Stapelverarbeitung</li>
         <li>Gelb-Markierung unsicherer Felder (sicher / unsicher / fehlt)</li>
         <li>Excel-Export in europäischen Formaten, Duplikat-Schutz</li>
-        <li>Tonnenkilometer &amp; Transport-CO₂ je Sendung — für CSRD/ESG</li>
+        <li>Tonnenkilometer &amp; Transport-CO₂ je Sendung — als VSME-Report</li>
+        <li>Wareneingangskontrolle: Lieferung gegen Bestellung geprüft</li>
+        <li>Artikel-Gedächtnis &amp; Auffälligkeiten (Preis / neuer Lieferant)</li>
+        <li>GoBD-revisionssichere Ablage · DATEV-/lexoffice-Export</li>
         <li>100 % lokale PDF-Verarbeitung</li>
         <li>Persönlicher Support &amp; alle Updates</li>
       </ul>
@@ -943,6 +1121,20 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.02; letter-spacing
          mit HVO rund 80&nbsp;% weniger. Die Faktoren sind anerkannte Richtwerte (u. a. DSLV-Leitfaden)
          und je Fuhrpark anpassbar: eine nachvollziehbare Schätzung für CSRD-/ESG-Berichte, keine
          zertifizierte Messung. Fehlen Gewicht oder Strecke, bleibt die Spalte leer statt geraten.</p>
+    </details>
+    <details data-reveal>
+      <summary>Erkennt Zettelfuchs Abweichungen zur Bestellung?</summary>
+      <p>Ja. Laden Sie die Bestellung als Tabelle (CSV/Excel) dazu, gleicht Zettelfuchs sie
+         Position für Position mit der Lieferung ab: zu wenig oder zu viel geliefert, abweichender
+         Preis, fehlende oder gar nicht bestellte Artikel — alles farbig markiert. Zusätzlich fällt
+         auf, wenn ein Preis deutlich vom zuletzt erfassten abweicht oder ein Lieferant neu ist.</p>
+    </details>
+    <details data-reveal>
+      <summary>Bekommt unser Steuerberater die Daten — GoBD und DATEV?</summary>
+      <p>Auf Wunsch legt Zettelfuchs jedes Original revisionssicher ab (unveränderbar, mit Prüfsumme
+         und Protokoll) — die Grundlage der achtjährigen Aufbewahrungspflicht, komplett lokal.
+         Für die Buchhaltung erzeugt es einen DATEV-Buchungsstapel (EXTF) oder einen CSV für
+         lexoffice. Konten und Nummern stimmen Sie einmal mit Ihrem Steuerberater ab.</p>
     </details>
     <details data-reveal>
       <summary>Brauchen wir neue Software oder eine Cloud?</summary>
